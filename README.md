@@ -212,30 +212,29 @@ sequenceDiagram
 
 ```mermaid
 erDiagram
-    Organization ||--o{ User : has
+    Organization ||--|| User : "owned by"
     Organization ||--o{ Team : contains
     Organization ||--o{ Service : manages
     Team ||--o{ TeamMember : includes
-    User ||--o{ TeamMember : is
+    User ||--o{ TeamMember : "is member of"
     Service ||--o{ Incident : reports
-    Service ||--o{ StatusUpdate : tracks
+    Service ||--o{ StatusHistory : tracks
     Incident ||--o{ IncidentUpdate : logs
 
     Organization {
         string id PK
         string name
-        string slug
+        string slug UK
+        string ownerId FK
         datetime createdAt
         datetime updatedAt
     }
 
     User {
         string id PK
-        string email
+        string email UK
         string name
-        enum role
-        string authorizationId
-        string organizationId FK
+        string authorizationId UK
         datetime createdAt
         datetime updatedAt
     }
@@ -252,7 +251,7 @@ erDiagram
         string id PK
         string teamId FK
         string userId FK
-        enum role
+        OrganizationRole role
         datetime createdAt
         datetime updatedAt
     }
@@ -261,7 +260,7 @@ erDiagram
         string id PK
         string name
         string description
-        enum currentStatus
+        ServiceStatus currentStatus
         float uptimePercentage
         string organizationId FK
         datetime createdAt
@@ -272,8 +271,8 @@ erDiagram
         string id PK
         string title
         string description
-        enum severity
-        enum status
+        IncidentSeverity severity
+        IncidentStatus status
         string serviceId FK
         datetime startedAt
         datetime resolvedAt
@@ -281,10 +280,11 @@ erDiagram
         datetime updatedAt
     }
 
-    StatusUpdate {
+    StatusHistory {
         string id PK
         string serviceId FK
-        enum status
+        ServiceStatus status
+        string message
         datetime createdAt
     }
 
@@ -292,66 +292,14 @@ erDiagram
         string id PK
         string incidentId FK
         string message
-        enum status
+        IncidentStatus status
         datetime createdAt
     }
 ```
 
-## API in Backend <a id="api-request-response"></a>
+## API in Backend <a href="api-request-response"></a>
 
-```
-
-1. Organization Endpoints <a id="org-endpoints"></a>
-
-- GET /api/organizations (Accessible: All authenticated users)
-- GET BY ORG ID /api/organizations/{orgId} (OWNER, ADMIN)
-- POST /api/organizations (Accessible: Any authenticated user)
-- PUT /api/organizations/{orgId} (OWNER, ADMIN)
-- DELETE /api/organizations/{orgId} (OWNER only)
-
-
-2. Team Endpoints <a id="team-end"></a>
-
-- GET /api/organizations/{orgId}/teams (OWNER, ADMIN, TEAM_ADMIN)
-- GET BY TEAM ID /api/organizations/{orgId}/teams/{teamId} (OWNER, ADMIN, TEAM_ADMIN, TEAM_MEMBER)
-- POST /api/organizations/{orgId}/teams (OWNER, ADMIN)
-- PUT /api/organizations/{orgId}/teams/{teamId} (OWNER, ADMIN, TEAM_ADMIN)
-- DELETE /api/organizations/{orgId}/teams/{teamId} (OWNER, ADMIN)
-
-3. Team Member Endpoints <a id="team-member-end"></a>
-
-- GET /api/organizations/{orgId}/teams/{teamId}/members (OWNER, ADMIN, TEAM_ADMIN, TEAM_MEMBER)
-- POST /api/organizations/{orgId}/teams/{teamId}/members (OWNER, ADMIN, TEAM_ADMIN)
-- PUT /api/organizations/{orgId}/teams/{teamId}/members/{userId} (OWNER, ADMIN, TEAM_ADMIN)
-- DELETE /api/organizations/{orgId}/teams/{teamId}/members/{userId} (OWNER, ADMIN, TEAM_ADMIN)
-
-4. Service Endpoints <a id="service-end"></a>
-
-- GET /api/organizations/{orgId}/services (All roles)
-- GET BY SERVICE ID /api/organizations/{orgId}/services/{serviceId} (OWNER, ADMIN, SERVICE_MANAGER)
-- POST /api/organizations/{orgId}/services (OWNER, ADMIN, SERVICE_MANAGER)
-- PUT /api/organizations/{orgId}/services/{serviceId} (OWNER, ADMIN, SERVICE_MANAGER, STATUS_REPORTER)
-- DELETE /api/organizations/{orgId}/services/{serviceId} (OWNER, ADMIN)
-
-5. Incident Endpoints <a id="incident-end"></a>
-
-- GET /api/organizations/{orgId}/services/{serviceId}/incidents (All roles)
-- GET BY INCIDENT ID /api/organizations/{orgId}/services/{serviceId}/incidents/{incidentId} (All roles
-- POST /api/organizations/{orgId}/services/{serviceId}/incidents (OWNER, ADMIN, SERVICE_MANAGER, STATUS_REPORTER)
-- PUT /api/organizations/{orgId}/services/{serviceId}/incidents/{incidentId} (OWNER, ADMIN, SERVICE_MANAGER, STATUS_REPORTER)
-- DELETE /api/organizations/{orgId}/services/{serviceId}/incidents/{incidentId} (OWNER, ADMIN, SERVICE_MANAGER)
-
-6. Public Status Page Response
-
-- GET /api/status
-
-7. Users
-
-- GET /api/organizations/{orgId}/users (OWNER, ADMIN)
-- POST /api/organizations/{orgId}/users/invite (OWNER, ADMIN)
-- PUT /api/organizations/{orgId}/users/{userId}/roles (OWNER, ADMIN)
-
-```
+[https://github.com/sanaullahmohammed/pulse-watch-plivo-hiring-assignment/blob/main/backend/README.md](https://github.com/sanaullahmohammed/pulse-watch-plivo-hiring-assignment/blob/main/backend/README.md)
 
 ## URLs in UI <a id="urls"></a>
 
