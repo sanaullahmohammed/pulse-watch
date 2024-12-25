@@ -23,7 +23,7 @@ import { AppRoutes } from "../../types/routes";
 
 const PublicStatusDashboard = () => {
   const [selectedOrg, setSelectedOrg] = useState<string>("all");
-  const [userAuthenticated, setUserAuthenticated] = useState(false);
+  // const [userAuthenticated, setUserAuthenticated] = useState(false);
   const navigate = useNavigate();
 
   const filteredOrgs =
@@ -44,29 +44,30 @@ const PublicStatusDashboard = () => {
                 </p>
               </div>
               <div className="flex items-center gap-4">
-                {userAuthenticated ? (
+                {/* TODO : Uncomment when required */}
+                {/* {userAuthenticated ? (
                   <Button
                     variant="default"
                     onClick={() => navigate(AppRoutes.Dashboard)}
                   >
                     My Dashboard
                   </Button>
-                ) : (
-                  <>
-                    <Button
-                      variant="outline"
-                      onClick={() => navigate(AppRoutes.SignUp)}
-                    >
-                      Sign In
-                    </Button>
-                    <Button
-                      variant="default"
-                      onClick={() => navigate(AppRoutes.SignUp)}
-                    >
-                      Sign Up
-                    </Button>
-                  </>
-                )}
+                ) : ( */}
+                <>
+                  <Button
+                    variant="outline"
+                    onClick={() => navigate(AppRoutes.SignUp)}
+                  >
+                    Sign In
+                  </Button>
+                  <Button
+                    variant="default"
+                    onClick={() => navigate(AppRoutes.SignUp)}
+                  >
+                    Sign Up
+                  </Button>
+                </>
+                {/* )} */}
               </div>
             </div>
             <div className="flex justify-end">

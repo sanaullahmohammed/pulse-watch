@@ -146,12 +146,6 @@ export default function UpdateTeamMemberPage({
 
       // Simulate API call
       await new Promise((resolve) => setTimeout(resolve, 1000));
-      console.log("Updating team member with data:", {
-        orgId,
-        teamId,
-        userId,
-        ...formData,
-      });
 
       navigate(AppRoutes.ViewTeamMembers);
     } catch (err) {

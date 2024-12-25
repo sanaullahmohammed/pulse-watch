@@ -1,1 +1,0 @@
-const STATUS = "/api/status";

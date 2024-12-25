@@ -49,21 +49,22 @@ export default function TeamMembersPage({
     message: string;
   } | null>(null);
 
-  const makeApiCall = async (url: string, method: string, data: any) => {
-    const response = await fetch(url, {
-      method,
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(data),
-    });
+  // TODO: Uncomment for API integration
+  // const makeApiCall = async (url: string, method: string, data: any) => {
+  //   const response = await fetch(url, {
+  //     method,
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //     },
+  //     body: JSON.stringify(data),
+  //   });
 
-    if (!response.ok) {
-      throw new Error(`API call failed: ${response.statusText}`);
-    }
+  //   if (!response.ok) {
+  //     throw new Error(`API call failed: ${response.statusText}`);
+  //   }
 
-    return response.json();
-  };
+  //   return response.json();
+  // };
 
   const getTeamName = (teamId: string): string => {
     const team = teams.find((t) => t.id === teamId);
