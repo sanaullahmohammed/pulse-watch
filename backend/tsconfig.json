@@ -1,0 +1,52 @@
+{
+  "compilerOptions": {
+    // Project Settings
+    "target": "ES2022", // Modern Node.js support (v18+)
+    "module": "NodeNext", // Use Node's native ESM
+    "moduleResolution": "nodenext", // Required for native ESM
+    "lib": ["ES2023"], // Latest ECMAScript features
+    "outDir": "./dist", // Build output directory
+    "rootDir": "./src", // Source files location
+    "resolveJsonModule": true, // Allow importing JSON files
+    "esModuleInterop": true, // Better module interop
+    "allowSyntheticDefaultImports": true, // Cleaner imports
+
+    // Type Checking
+    "strict": true, // Enable all strict type checks
+    "noImplicitAny": true, // Warn on implied 'any' types
+    "strictNullChecks": true, // Better null/undefined handling
+    "strictFunctionTypes": true, // Stricter function type checking
+    "strictBindCallApply": true, // Stricter 'bind', 'call', 'apply'
+    "noImplicitThis": true, // Warn on 'this' with implied 'any'
+    "alwaysStrict": true, // Parse in strict mode
+    "noUnusedLocals": true, // Report unused local variables
+    "noUnusedParameters": true, // Report unused parameters
+    "exactOptionalPropertyTypes": true, // More precise optional properties
+    "noImplicitReturns": true, // Check all code paths return
+    "noFallthroughCasesInSwitch": true, // Require break in switch cases
+
+    // Build Features
+    "sourceMap": true, // Generate source maps
+    "declaration": true, // Generate .d.ts files
+    "removeComments": true, // Remove comments in output
+    "preserveConstEnums": true, // Keep const enums in output
+
+    // JavaScript Support
+    "allowJs": true, // Allow JavaScript files
+    "checkJs": true, // Type check JavaScript files
+
+    // Additional Checks
+    "forceConsistentCasingInFileNames": true, // Ensure consistent casing
+    "skipLibCheck": true // Skip type checking node_modules
+  },
+  "include": [
+    "src/**/*" // All files in src
+  ],
+  "exclude": [
+    "node_modules", // Exclude node_modules
+    "dist", // Exclude build output
+    "**/*.spec.ts", // Exclude test files
+    "**/*.test.ts",
+    "coverage" // Exclude coverage reports
+  ]
+}
