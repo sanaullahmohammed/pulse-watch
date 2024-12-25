@@ -1,11 +1,11 @@
 # pulse-watch-plivo-hiring-assignment
 
-Pulse Watch is a Status Page Application allowing users to maintain and manage services, incidents, schedule maintenance. Proving users with real-time updates and it includes both an administrative interface for managing services and a public-facing status page for end users
-
 ### Index
 
+- [About](#about)
+- [Setup Details](#setup)
 - [Features](#features)
-- [Tasks](#tasks)
+- [Implementation Status](#imp-status)
 - [Tech Stack](#tech-stack)
 - [Architecture Diagrams](#arch-diagrams)
   - [Authentication Flow](#auth-flow)
@@ -13,6 +13,17 @@ Pulse Watch is a Status Page Application allowing users to maintain and manage s
   - [Database ER (entity-relationship) Diagram](#db-er)
 - [APIs in Backend](#api-request-response)
 - [URLs in UI](#urls)
+
+## About <a id="about"></a>
+
+Pulse Watch is a Status Page Application allowing users to maintain and manage services, incidents, schedule maintenance. Proving users with real-time updates and it includes both an administrative interface for managing services and a public-facing status page for end users
+
+## Setup Details <a id="setup"></a>
+
+- [Frontend](./frontend/README.md)
+- [Backend](./backend/README.md)
+
+- [Frontend Demo with Mock Data](https://sanaullahmohammed.github.io/pulse-watch-plivo-hiring-assignment/#/dashboard)
 
 ## Features <a id="features"></a>
 
@@ -24,66 +35,70 @@ Pulse Watch is a Status Page Application allowing users to maintain and manage s
 - Public Status Page
 - Modern UI with ShadcnUI
 
-## Tasks <a id="tasks"></a>
+## Implementation Status <a id="imp-status"></a>
 
-- Frontend
-  - Public Status Page
-    - [x] List Services , Active and Past Incidents of All Organizations
-    - [x] Filter based on Organization
-    - [x] SignIn and SignUp Buttons
-    - [x] My Dashboard button for Logged In User
-  - Dashboard
-    - [x] Show statistics for Active Incidents, Services and Team Members
-    - [x] Show Recent Services
-  - Services
-    - [x] View Services
-    - [x] Update Service
-    - [x] Create New Service
-  - Incidents
-    - [x] View Incidents
-      - Lists "Active", "Resolved" and "All" incidents with service names
-    - [x] Report Incident
-    - [x] Report Incident under Specific Service
-    - [x] Update Incident
-    - [x] User can filter based on Services
-  - Team / Team Members
-    - [x] View Team Members
-    - [x] Create Team
-    - [ ] Edit Team
-    - [x] Edit Team or Change Role for Team Member
-    - [x] Add "Freelancer User" as Team Member
-  - [x] SignIn/SignUp Page
-  - [x] Create your Organization as part of SignUp
-  - [ ] Common Error Page
-  - [ ] Websocket connection between backend and frontend
-- Backend
-  - [x] Create Schema Design for DB
-  - [x] Create Relations in PostgreSQL DB
-  - [ ] Multi-Tenant Creation
-  - [x] APIs for Organizations
-  - [x] APIs for Services
-  - [x] APIs for Incidents
-  - [x] APIs for Teams
-  - [x] APIs for Team Members
-  - [x] APIs for Users
-  - [x] API for Websocket connection for live updates
-- [ ] Authentication with Clerk
-- [ ] Integrate Frontend with Backend
-- [x] Write Docker Compose file for Backend
-- Testing
-  - [ ] Add e2e test with Playwright
-  - [ ] Add unit tests as required
-- Deployment
-  - [ ] Docker Compose
-  - [ ] Deploy on Vercel or Heroku
-  - [ ] GHA Setup for Auto-Updates
-- General Code Practices
-  - [ ] Follow Clean Code Architecture Principes
-  - [ ] Iteration for Error Validations
-  - [ ] Iteration to Clean frontend code to create more reusable components
-- Future TODOs
-  - [ ] Implement Email Notifications
-  - [ ] Implement Email Invitations for Users
+### Completed Components
+
+1. Frontend Development
+   The frontend implementation has successfully delivered the following features:
+
+   - Public Status Page
+     - Service listing functionality with active and past incidents across organizations
+     - Organization-based filtering system
+     - Authentication interface with Sign In and Sign Up capabilities
+     - Dashboard access for authenticated users
+   - Dashboard Features
+     - Statistical overview displaying active incidents, services, and team member metrics
+     - Recent services display implementation
+     - Comprehensive service management interface
+     - Incident management system with filtering capabilities
+     - Team management functionality
+   - Mock data integration for demonstration purposes
+
+2. Backend Development
+   The backend infrastructure has been established with:
+
+   - Complete database schema design
+   - PostgreSQL database implementation with defined relationships
+   - Comprehensive API endpoints for:
+     - Organizations
+     - Services
+     - Incidents
+     - Teams
+     - Team Members
+     - Users
+     - WebSocket connections for real-time updates
+
+- Docker configuration for backend services
+
+### Pending Implementation
+
+1. Integration and Deployment
+
+- Frontend and backend integration
+- Authentication system implementation with Clerk
+- Deployment configuration and execution
+- GitHub Actions setup for automated deployments
+
+2. Additional Features
+
+- Email notification system
+- Email invitation system for users
+- Common error page implementation
+- WebSocket connection between frontend and backend
+- Team editing functionality
+
+3. Code Quality and Architecture
+
+- Clean Code Architecture principles implementation
+- Error validation enhancements
+- Frontend component optimization for reusability
+
+4. Testing Implementation
+
+- End-to-end testing using Playwright
+- Unit testing coverage
+- Integration testing
 
 ## Tech Stack <a id="tech-stack"></a>
 
