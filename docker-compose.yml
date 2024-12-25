@@ -1,0 +1,29 @@
+services:
+  pg:
+    image: postgres:latest
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: ${PG_USER}
+      POSTGRES_PASSWORD: ${PG_PASSWORD}
+      POSTGRES_DB: ${PG_DB}
+    healthcheck:
+      # This command checks if the database is ready, right on the source db server
+      test: ["CMD-SHELL", "pg_isready -d pulsewatch -U ${PG_USER}"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+  backend:
+    build: ./backend
+    ports:
+      - "8080:8080"
+    depends_on:
+      # It prevents issuing a request while the server is starting to depend on the healthy status of postgres-db
+      pg:
+        condition: service_healthy
+    environment:
+      DATABASE_URL: ${DATABASE_URL}
+      APPLICATION_NAME: BACKEND-SVC
+      PORT: ${BACKEND_SVC_PORT}
+      CLERK_SECRET_KEY: ${CLERK_SECRET_KEY}
+      FRONTEND_URL:
