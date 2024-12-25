@@ -6,6 +6,8 @@
 - [Setup Details](#setup)
 - [Features](#features)
 - [Implementation Status](#imp-status)
+  - [Completed Implementation](#completed)
+  - [**Pending Implementation**](#pending)
 - [Tech Stack](#tech-stack)
 - [Architecture Diagrams](#arch-diagrams)
   - [Authentication Flow](#auth-flow)
@@ -35,9 +37,9 @@ Pulse Watch is a Status Page Application allowing users to maintain and manage s
 - Public Status Page
 - Modern UI with ShadcnUI
 
-## Implementation Status <a id="imp-status"></a>
+## Implementation Status <a id="completed"></a>
 
-### Completed Components
+### Completed Components <a id="pending"></a>
 
 1. Frontend Development
    The frontend implementation has successfully delivered the following features:
@@ -71,7 +73,7 @@ Pulse Watch is a Status Page Application allowing users to maintain and manage s
 
 - Docker configuration for backend services
 
-### Pending Implementation
+### Pending Implementation <a id="imp-status"></a>
 
 1. Integration and Deployment
 
