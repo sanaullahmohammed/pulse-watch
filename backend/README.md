@@ -1,7 +1,8 @@
 # API and WebSocket Documentation
 
 ## Table of Contents
-1. [REST API](#rest-api)
+1. [Setup Instructions](#setup-instructions)
+2. [REST API](#rest-api)
    1. [Status](#1-status)
    2. [Users](#2-users)
    3. [Organizations](#3-organizations)
@@ -9,8 +10,32 @@
    5. [Team Members](#5-team-members)
    6. [Services](#6-services)
    7. [Incidents](#7-incidents)
-2. [WebSocket Events](#websocket-events)
+3. [WebSocket Events](#websocket-events)
    1. [dbUpdate Event](#1-dbupdate-event)
+
+# Setup Instructions
+
+## Environment Configuration
+1. Create a `.env` file in the root folder
+2. Copy the contents from `.env.example` and fill in your specific values
+
+## Running the Application
+1. Start the services using Docker:
+   ```bash
+   docker-compose up --build
+   ```
+
+2. Wait for the following confirmation messages:
+   ```
+   HTTP server running on PORT: 8080
+   WebSocket server initialized
+   ```
+
+3. Access the server:
+   - Navigate to `localhost:8080`
+   - The API endpoints described below will be available at this address
+
+[Rest of the existing documentation remains the same...]
 
 # REST API
 
