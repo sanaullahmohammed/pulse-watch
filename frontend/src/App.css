@@ -1,0 +1,15 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+#root {
+  width: 100vw;
+  min-height: 100vh;
+}
+
+/* Also add this to handle potential horizontal scroll issues */
+body {
+  overflow-x: hidden;
+}
