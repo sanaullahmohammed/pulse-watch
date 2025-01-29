@@ -299,7 +299,7 @@ erDiagram
 
 ## API in Backend <a href="api-request-response"></a>
 
-[https://github.com/sanaullahmohammed/pulse-watch-plivo-hiring-assignment/blob/main/backend/README.md](https://github.com/sanaullahmohammed/pulse-watch-plivo-hiring-assignment/blob/main/backend/README.md)
+[https://github.com/sanaullahmohammed/pulse-watch/blob/main/backend/README.md](https://github.com/sanaullahmohammed/pulse-watch/blob/main/backend/README.md)
 
 ## URLs in UI <a id="urls"></a>
 
